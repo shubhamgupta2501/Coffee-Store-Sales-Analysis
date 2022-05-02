@@ -1,0 +1,183 @@
+
+%--------------- Personalize your document here ---------------
+
+\newcommand{\studentone}{Kevin Ramirez} % Enter your supervisor's name
+\newcommand{\studenttwo}{Mandy He}% Leave it empty or enter your second supervisor's name 
+\newcommand{\studentthree}{Shubham Gupta}% Leave it empty or enter your second supervisor's name 
+\newcommand{\studentfour}{Rahul Vishwakarma}% Leave it empty or enter your second supervisor's name
+\newcommand{\studentfive}{Peter Gatsby}% Leave it empty or enter your second supervisor's name 
+%\newcommand{\studentsix}{Dhwani Daftari}% Leave it empty or enter your second supervisor's name 
+
+\newcommand{\supervisorone}{Dr. Mahshid Fardadi} % Enter your supervisor's name
+\newcommand{\supervisortwo}{Dr. Allen Bolourchi}% Leave it empty or enter your second supervisor's name 
+\newcommand{\department}{CECS 551 Artificial Intelligence}
+%\newcommand{\exam}{Project Report}
+
+\title{Coffee Beans Sales Analysis and Recommendation} %Enter the title of your report 
+\date{May 2022} % insert a specific date	
+
+%--------------------------------------------------------------
+
+% This document was adapted from the
+% TEMPLATE FOR PHYS250 WORKSHEET created by Alastair McLean
+% URL: https://www.overleaf.com/latex/templates/phys250-worksheet-template/xxftvfhmwqdt
+
+% Jefferson Silveira
+% Email: 19jdls1@queensu.ca
+% Last update: 09-Jun-2021
+% If you have any questions or concerns, do not hesitate to contact me.
+%--------------------------------------------------------------
+
+\documentclass[a4paper,12pt]{article}
+\usepackage[left=30mm,top=30mm,right=30mm,bottom=30mm]{geometry}
+\usepackage{etoolbox} %required for cover page
+\usepackage{booktabs}
+\usepackage[usestackEOL]{stackengine}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage[capitalise]{cleveref}
+\usepackage{enumitem,kantlipsum}
+\usepackage{amssymb}
+\usepackage[square,numbers,sort]{natbib}
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage{listings}
+\usepackage{minted}
+\usemintedstyle{emacs}
+
+\renewcommand{\listingscaption}{Algorithm}
+\renewcommand{\listoflistingscaption}{List of Algorithms}
+
+
+\bibliographystyle{unsrtnat}
+
+\hypersetup{
+    colorlinks,
+    linkcolor={black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
+\linespread{1}
+
+\newtheorem{theorem}{Theorem}[section]
+\graphicspath{{figures/}}	
+
+%----------------------------------TITLE PAGE -----------------------------------
+\makeatletter
+\def\maketitle{
+  \begin{center}\leavevmode
+       \normalfont
+       \includegraphics[width=0.35\columnwidth]{csulb.png}
+       \vskip 0.5cm   
+       \textsc{\large \department}\\
+       \vskip 1.5cm
+       \rule{\linewidth}{0.2 mm} \\
+       {\large \exam}\\[1 cm]
+       {\huge \bfseries \@title \par}
+       \vspace{1cm}
+	\rule{\linewidth}{0.2 mm} \\[1.5 cm]
+	 
+
+	\begin{minipage}[t]{\textwidth}
+	    \begin{flushleft} \large
+			\ifdefempty{\supervisortwo}{\emph{Students\\}}{\emph{Student\\}}
+			\studentone\\
+			\ifdefempty{\studenttwo}{}{\studenttwo\\}
+			\ifdefempty{\studenttwo}{}{\studentthree\\}
+			\ifdefempty{\studenttwo}{}{\studentfour\\}
+			\ifdefempty{\studenttwo}{}{\studentfive\\}
+			\ifdefempty{\studenttwo}{}{\studentsix\\}
+		\end{flushleft}
+	\end{minipage}
+	
+	\begin{minipage}[t]{\textwidth}
+	    \begin{flushright} \large
+			\ifdefempty{\supervisortwo}{\emph{Supervisor:\\}}{\emph{Supervisors\\}}
+			\supervisorone\\
+			\ifdefempty{\supervisortwo}{}{\supervisortwo\\}
+		\end{flushright}
+	\end{minipage}
+	\vfill
+	{\Large \@date\par}
+   \end{center}
+   %\vfill
+   %\null
+   \cleardoublepage
+  }
+\makeatother
+
+
+%-------------------------------- ENDTITLE PAGE ----------------------------------
+
+\begin{document}
+
+\pagenumbering{gobble}% Remove page numbers (and reset to 1)
+
+\maketitle
+
+\tableofcontents
+\newpage
+%\listoffigures
+%\newpage
+%\listoftables
+%\newpage
+%\listofalgorithms % List of algorithms in pseudocode format
+%\newpage
+%\listoflistings % List of algorithms in code format
+%\newpage
+
+
+\pagenumbering{arabic}% Arabic page numbers (and reset to 1)
+
+
+\begin{abstract}
+    Coffee Shop is a hypothetical store which has multiple products sold across various geographical locations. There are 132 stores of an international coffee shop chain with more than 1000 stores worldwide and \$400M revenue.
+    \\
+    
+    Over a period of time there is a slight fall in the revenue across few of the stores. As a precautionary and preventive measure the organization decided to consult data scientists to understand the reason behind the slight decline in sales and expecting a few recommendation which will help improve the overall sales across the stores. The purpose of the analysis is to use the sales prediction and inventory alignment to improve sales and reduce waste, resulting in a more efficient operation.
+    \\
+    
+    We analyze the data for coffee shop stores and provide few initiative which help maximize the overall sales and profit. This document summarizes our finding. 
+    
+\end{abstract}
+\newpage
+
+
+
+
+% This is how you can organize your document
+\input{sections/introduction}
+\newpage
+\input{sections/chapter01}
+\newpage
+\input{sections/chapter02}
+\newpage
+\input{sections/chapter03}
+\newpage
+\input{sections/conclusion}
+\newpage
+\input{sections/acknowledgement}
+
+
+
+
+
+%If you came here because you want your references in a new page, uncomment the following line
+
+%\clearpage % If you want the references in a separate page
+%\bibliography{bibliography}
+
+\clearpage % If you want the appendix in a separate page
+%\appendix
+%\input{sections/appendix}
+
+\end{document}

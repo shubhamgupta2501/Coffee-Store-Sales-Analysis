@@ -1,0 +1,67 @@
+\section{Introduction}
+In a team of four, in section one, two members mainly focus on analyzing the data of three specified stores (StoreID=18, 117, 332) and two persons mainly focuses on the data of the entire 132 stores. Single store results and corporate-wide results should be communicated between team members to help them with their individual analysis and ensure consistency. But you will be graded as one team. In section two and three all team members work together.
+\subsection{Problem Statement}
+The final project is designed to implement two-week sprints of the scrum process, mimicking a real tech company machine learning or software development team environment. Please see the timetable below for more details. It is suggested that one person plays the role of the scrum master to coordinate the communications between team members and ensure on-time delivery at the end of each 2-week sprint.
+
+\subsection{Dataset Description}
+The table below describes the features of the dataset for coffee shop. We will be considering only 27 products for the initial analysis. 
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{p{0.3\textwidth}p{0.8\textwidth}}
+
+ Features & Description \\ 
+ -------------------------------- \\
+ StoreID & ID of Store \\
+ PLU & ID of inventory \\
+ Description & Name of product \\
+ItemType & Type of product \\
+CategoryLvl1Desc & Main level of product’s category \\
+CategoryLvl2Desc & The 2nd level of product’s category \\
+CategoryLvl3Desc & The 3rd level of product’s category \\
+ReceivedQuantity & The amount stores received from the distributor. \\
+SoldQuantity & Quantity sold on a particular day. \\
+EndQuantity & Quantity at the end of the day – inventory condition. \\
+LatestOrder & The number of items they requested. \\
+StockedOut & They record when a customer asks for an out-of-stock item. \\
+GroupID & Not Applicable \\
+MissedSales & Not sure what these data signify. \\
+BusinessDate & Date of record \\ [1ex] 
+\end{tabular}
+\caption{Coffee Store data description.}
+\end{table}
+
+\newpage
+\subsection{Proposed Workflow}
+We perform the analysis in three phases. 
+\begin{enumerate}
+  \item Data exploratory analysis.
+  \item Create a machine leaning model for sales prediction.
+  \item Inference and recommendation to maximize the profit.
+\end{enumerate}
+
+\subsubsection{Phase 1}
+Each phase is covered in individual chapters. The first phase tires to understand the data distribution, relationship among them using correlation matrix and SHAP feature interactions. 
+\begin{itemize}
+    \item Rank the products based on their sales (best seller and worst seller products), identify where/when the store gets rid of the unpurchased products.
+    \item Investigate whether drive thru feature causes certain products to sell better or worse.
+    \item Understand if the seasonal change impacts the sales of certain product.
+    \item Draw conclusions and suggest a recommendation to optimize the stocking
+\end{itemize}
+
+\subsubsection{Phase 2}
+The purpose of second phase is to come up with a predictor for sales of each product based on which we can optimize the restocking and inventory management of stores 18, 117, 332. We evaluate the impact of GAN on the existing dataset and overall performance of prediction mode, and concluded that adding GAN dataset doesn't help much. We also design a regression based predictive model for understanding the sales (SoldQuantity) based on various below machine learning models. 
+\begin{itemize}
+    \item Random Forest.
+    \item Gradient Boosting Machine
+    \item Light GBM
+    \item XGBoost
+    \item LSTM
+\end{itemize}
+
+\subsubsection{Phase 3}
+One of the goal is to provide insight and recommend few initiatives based on the sales predictions model from the previous phases and provide minimum of three inventory optimization initiatives and examine them on the data.
+
+We also deploy the model on a dashboard for visualization. 
+
+
